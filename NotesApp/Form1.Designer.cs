@@ -58,7 +58,7 @@ namespace NotesApp
             // 
             // Title
             // 
-            this.Title.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Title.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Title.Location = new System.Drawing.Point(358, 9);
             this.Title.Name = "Title";
             this.Title.Size = new System.Drawing.Size(430, 23);
@@ -85,7 +85,6 @@ namespace NotesApp
             this.previousNotes.Name = "previousNotes";
             this.previousNotes.Size = new System.Drawing.Size(340, 314);
             this.previousNotes.TabIndex = 4;
-            this.previousNotes.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.previousNotes_CellDoubleClick);
             // 
             // deleteButton
             // 

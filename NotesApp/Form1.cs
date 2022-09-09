@@ -40,6 +40,12 @@ namespace NotesApp
             {
                 notes.Rows[previousNotes.CurrentCell.RowIndex].Delete();
             }
+            catch (NullReferenceException ex)
+            {
+                {
+                Console.WriteLine("There is no annotation to delete.");
+                }
+            }
             catch (Exception ex)
             {
                 Console.WriteLine("Not a valid note.");
@@ -55,9 +61,17 @@ namespace NotesApp
         private void saveButton_Click(object sender, EventArgs e)
         {
             if (editing)
-            {
+            {   
+                try
+                {
                 notes.Rows[previousNotes.CurrentCell.RowIndex]["Title"] = titleBox.Text;
                 notes.Rows[previousNotes.CurrentCell.RowIndex]["Note"] = noteBox.Text;
+                }
+                catch (NullReferenceException ex)
+                {
+                    Console.WriteLine("Something went wrong, " +
+                    "click on the left side to select the entire row, then try again.");
+                }
             }
             else
             {
@@ -66,13 +80,6 @@ namespace NotesApp
             titleBox.Text = "";
             noteBox.Text = "";
             editing = false;
-        }
-
-        private void previousNotes_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
-        {
-            titleBox.Text = notes.Rows[previousNotes.CurrentCell.RowIndex].ItemArray[0].ToString();
-            noteBox.Text = notes.Rows[previousNotes.CurrentCell.RowIndex].ItemArray[1].ToString();
-            editing = true;
         }
     }
 }
